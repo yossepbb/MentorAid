@@ -1,6 +1,20 @@
+<div class="container">
+  <h1>All Users skills</h1>
+  <div class="row">
+    <% @user_skills.each do |user_skill| %>
 
-<% @user_skills.each do |user_skill| %>
-<ul>
-  <li><%= link_to "#{user_skill.user.name}....#{ user_skill.skill.name}", user_skill_path(user_skill) %></li>
-</ul>
-<%end %>
+      <div class="col-xs-12 col-sm-4">
+
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('');">
+          <div class="card-category"><%= user_skill.skill.name %></div>
+          <div class="card-description">
+            <%= link_to "#{user_skill.user.name}", user_skill_path(user_skill.id) %>
+          </div>
+          <img class="card-user avatar" src="https://kitt.lewagon.com/placeholder/users/atmosfeer">
+          <a class="card-link" href="#" ></a>
+        </div>
+
+      </div>
+    <%end %>
+  </div>
+</div>
