@@ -27,11 +27,14 @@
           </div>
       </div>
 </div>
-
-<h2>Réserver</h2>
-
-<%= simple_form_for [@user_skill, @booking ] do |f| %>
-  <%= f.input :happenned_at %>
-  <%= f.submit "reserver" %>
-<% end %>
-
+<div class="container">
+  <h2>Réserver</h2>
+  <div class="row">
+    <div class="col-lg-6 offset-lg-3">
+      <%= simple_form_for [@user_skill, @booking ] do |f| %>
+        <%= f.input :happenned_at %>
+        <%= f.submit "reserver" %>
+      <% end %>
+    </div>
+  </div>
+</div>
