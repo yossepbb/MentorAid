@@ -1,15 +1,17 @@
 class BookingsController < ApplicationController
   def index
-    @booking = Booking.all
+    @bookings = Booking.all
   end
   def create
     @user_skill_id = UserSkill.find(params[:user_skill_id])
     @booking = @user_skill_id.bookings.new(booking_params)
     if @booking.save
       redirect_to   bookings_path
-    else
-      # render :new
     end
+  end
+
+  def review
+     @booking = Booking.find(params[:id])
   end
 
   private
