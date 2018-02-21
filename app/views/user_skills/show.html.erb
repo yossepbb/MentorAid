@@ -30,10 +30,11 @@
   <h2>Book Your skill</h2>
   <div class="row">
     <div class="col-lg-6 offset-lg-3">
-      <%= simple_form_for [@user_skill, @booking ] do |f| %>        
+      <%= simple_form_for [@user_skill, @booking ] do |f| %>
         <%= f.input :happenned_at, :as => :string, :value => time_format(f.object.happenned_at),:input_html => { :class => 'thin', :placeholder => 'eg: 20/03/2018' } %>
         <%= f.submit "reserver" %>
       <% end %>
+      <%= @user_latitude %>
     </div>
   </div>
 </div>

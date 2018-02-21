@@ -13,6 +13,7 @@ gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
 gem 'cloudinary'
 gem 'font-awesome-sass'
+gem "geocoder"
 gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
