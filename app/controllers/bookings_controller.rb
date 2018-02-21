@@ -11,6 +11,7 @@ class BookingsController < ApplicationController
       redirect_to bookings_path
     else
       redirect_to bookings_path
+
     end
   end
 

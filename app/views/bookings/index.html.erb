@@ -1,3 +1,7 @@
 <% @bookings.each do |booking| %>
-<li><%= booking.user.email %><%= booking.review %><%= booking.rating %></li>
+  <% if current_user.name.empty? %>
+    <li><%= booking.user.email %><%= booking.review %><%= booking.happenned_at %></li>
+  <% else %>
+    <li><%= booking.user.name %><%= booking.review %><%= booking.happenned_at %></li>
+  <% end %>
 <% end %>
