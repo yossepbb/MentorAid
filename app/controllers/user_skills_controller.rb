@@ -5,7 +5,7 @@ class UserSkillsController < ApplicationController
 
    def show
     @user_skill = UserSkill.find(params[:id])
-
+    # condition  if login
     @booking = Booking.new
    end
 
