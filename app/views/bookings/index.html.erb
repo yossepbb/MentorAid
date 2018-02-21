@@ -1,3 +1,5 @@
+<h1>Your bookings</h1>
+<div class="container">
 <% @bookings.each do |booking| %>
   <% if current_user.name.empty? %>
     <li><%= booking.user.email %><%= booking.review %><%= booking.happenned_at %></li>
@@ -5,3 +7,4 @@
     <li><%= booking.user.name %><%= booking.review %><%= booking.happenned_at %></li>
   <% end %>
 <% end %>
+</div>
