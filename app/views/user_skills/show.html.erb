@@ -1,5 +1,32 @@
+<h2> user skill details</h2>
+<div class="container-fluid">
+      <div class="row">
+          <div class="col-xs-12 offset-col-xs-6">
+            <ul class="list-unstyled ">
 
-<strong><%= @user_skill.skill.name%></strong>
+              <li class="product">
+                  <div class="product-upvote">
+                  <i class="fa fa-caret-up" aria-hidden="true"></i>
+                  <p>3000</p>
+                  </div>
+
+                  <img src="https://picsum.photos/150/150/?random" alt="" class="img-rounded">
+
+                  <div class="product-description">
+                      <h3><strong><%= @user_skill.skill.name%></strong></h3>
+                      <p><%= @user_skill.skill.description%></p>
+                  </div>
+
+                  <ul class="list-inline product-controls">
+                  <li> <a href="#"><i class="fa fa-heart"></i></a></li>
+                  <li><a href="#"><i class="fa fa-share"></i></a></li>
+                  <li><a href="#"><i class="fa fa-star"></i></a></li>
+                  </ul>
+              </li>
+            </ul>
+          </div>
+      </div>
+</div>
 
 <%= @user_skill.skill.description%>
 
