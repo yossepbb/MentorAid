@@ -10,28 +10,22 @@
                   <p>3000</p>
                   </div>
 
-                  <img src="https://picsum.photos/150/150/?random" alt="" class="img-rounded">
+                  <img src="https://picsum.photos/150/150/?random" alt="" class="img-rounded border-user">
 
                   <div class="product-description">
                       <h3><strong><%= @user_skill.skill.name%></strong></h3>
                       <p><%= @user_skill.skill.description%></p>
                   </div>
 
-                  <ul class="list-inline product-controls">
-                  <li> <a href="#"><i class="fa fa-heart"></i></a></li>
-                  <li><a href="#"><i class="fa fa-share"></i></a></li>
-                  <li><a href="#"><i class="fa fa-star"></i></a></li>
-                  </ul>
+                <%= simple_form_for [@user_skill, @booking ] do |f| %>
+                  <%= f.input :happenned_at %>
+                  <%= f.submit "reserver" %>
+                <% end %>
               </li>
             </ul>
           </div>
       </div>
 </div>
 
-<h2>Réserver</h2>
 
-<%= simple_form_for [@user_skill, @booking ] do |f| %>
-  <%= f.input :happenned_at %>
-  <%= f.submit "reserver" %>
-<% end %>
 
