@@ -14,8 +14,6 @@ puts 'Creating 20 fake users...'
   )
 end
 
-
-
 puts 'Creating 20 fake skills...'
 20.times do
     skill = Skill.new(
@@ -36,3 +34,13 @@ end
 
 
 puts 'Finished!'
+
+#   names = ["john","nathan", "sylvain", "Benoit", "Damien", "Ercic"]
+#   User.create!(
+#     name:    names.sample,
+#     email:   Faker::Internet.email,
+#     password: Faker::Internet.password,
+#     pseudo:  Faker::GameOfThrones.character,
+#     address: "#{Faker::Address.street_address}, #{Faker::Address.city}"
+#   )
+# end
