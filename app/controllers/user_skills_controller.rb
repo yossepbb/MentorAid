@@ -1,5 +1,5 @@
 class UserSkillsController < ApplicationController
-  skip_before_action :authenticate_user!, only: :index
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
    def index
     @user_skills = UserSkill.all
@@ -7,7 +7,6 @@ class UserSkillsController < ApplicationController
 
    def show
     @user_skill = UserSkill.find(params[:id])
-
     @booking = Booking.new
    end
 
