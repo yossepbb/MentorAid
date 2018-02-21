@@ -6,7 +6,7 @@ class BookingsController < ApplicationController
     @user_skill_id = UserSkill.find(params[:user_skill_id])
     @booking = @user_skill_id.bookings.new(booking_params)
     if @booking.save
-      redirect_to   bookings_path
+      redirect_to bookings_path
     end
   end
 
