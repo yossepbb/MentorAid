@@ -2,3 +2,9 @@
 <strong><%= @user_skill.skill.name%></strong>
 
 <%= @user_skill.skill.description%>
+
+
+<%= simple_form_for [@user_skill, @booking] do |f| %>
+  <%= f.input :user_id,  value:current_user.id%>
+  <%= f.submit "reserver" %>
+<%end %>
