@@ -1,10 +1,26 @@
 <h1>Your bookings</h1>
 <div class="container">
-<% @bookings.each do |booking| %>
-  <% if current_user.name.empty? %>
-    <li><%= booking.user.email %><%= booking.review %><%= booking.happenned_at %></li>
-  <% else %>
-    <li><%= booking.user.name %><%= booking.review %><%= booking.happenned_at %></li>
+  <% @bookings.each do |booking| %>
+  <div class="col-sm-12">
+    <div class="col-sm-8">
+    <p><%= booking.user_skill.user.avatar %></p>
+
+    <p><%= booking.review %></p>
+
+    <p><%=  booking.rating%></p>
+
+    <p>  <%= booking.happenned_at%></p>
+
+    </div>
+    <% if booking.review == nil &&  booking.happenned_at < Date.today  %>
+    <div class="col-sm-4">
+    <%= simple_form_for booking do |f| %>
+      <%= f.input :rating %>
+      <%= f.input :review %>
+      <%= f.submit "Add a Rewiew" %>
+    <% end %>
+    </div>
+    <% end %>
+  </div>
   <% end %>
-<% end %>
 </div>
