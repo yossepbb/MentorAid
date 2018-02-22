@@ -12,13 +12,14 @@
 
 ActiveRecord::Schema.define(version: 20180221152131) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "bookings", force: :cascade do |t|
     t.string "rating"
     t.string "review"
-    t.text "happenned_at"
+    t.date "happenned_at"
     t.bigint "user_skill_id"
     t.bigint "user_id"
     t.datetime "created_at", null: false

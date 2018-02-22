@@ -38,4 +38,3 @@ u_skill3.save
 
 
 puts 'Finished creating user-skills !'
-

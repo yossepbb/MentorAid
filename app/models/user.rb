@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :user_skills
+  has_many :bookings
   has_many :skills, through: :user_skills
   validates :email, presence: true
   # validates :address, presence: true

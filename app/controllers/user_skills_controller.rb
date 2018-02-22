@@ -10,11 +10,8 @@ class UserSkillsController < ApplicationController
     @booking = Booking.new
     @user_latitude = @user_skill.user.latitude
     @user_longitude = @user_skill.user.longitude
-    @markers = [@user_skill.user.latitude, @user_skill.user.longitude]
+    @markers = [{lat: @user_skill.user.latitude, lng: @user_skill.user.longitude}]
     end
-
 end
-
-
 
 
