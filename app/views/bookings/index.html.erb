@@ -3,8 +3,8 @@
   <% @bookings.each do |booking| %>
   <div class="col-sm-12">
     <div class="col-sm-8">
-    <p><%= booking.user_skill.user.avatar %></p>
-
+    <p><%= booking.user_skill.user.name %></p>
+    <%= image_tag booking.user_skill.user.avatar%>
     <p><%= booking.review %></p>
 
     <p><%=  booking.rating%></p>
@@ -15,7 +15,15 @@
     <% if booking.review == nil &&  booking.happenned_at < Date.today  %>
     <div class="col-sm-4">
     <%= simple_form_for booking do |f| %>
-      <%= f.input :rating %>
+      <%#= f.collection_radio_buttons :rating, [[1, '1'],  [2, ],[3, ],[4, ],[5, ]], :first, :last %>
+      <%=f.collection_radio_buttons( :rating,
+                                  [[1, '.'],  [2 , "."],[3,"." ],[4,"." ],[5, "."]],
+                                  :first,
+                                  :last,
+                                  item_first_class: "custom",
+                                  item_wrapper_class: "custom-radio",:input_html =>
+                                   { :checked => true }
+                                )%>
       <%= f.input :review %>
       <%= f.submit "Add a Rewiew" %>
     <% end %>
@@ -24,3 +32,5 @@
   </div>
   <% end %>
 </div>
+
+

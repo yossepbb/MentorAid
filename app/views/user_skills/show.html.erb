@@ -19,27 +19,13 @@
                   </div>
 
                 <%= simple_form_for [@user_skill, @booking ] do |f| %>
-                  <%= f.input :happenned_at, as: :date %>
+                  <%= f.input :happenned_at, as: :date, order: [:day, :month, :year] %>
                   <%= f.submit "reserver" %>
                 <% end %>
               </li>
             </ul>
           </div>
       </div>
-</div>
-<div class="container">
-  <h2>Book Your skill</h2>
-  <p class="icon-sailling" style="color:red;">""</p>
-  <div class="row">
-    <div class="col-lg-6 offset-lg-3">
-      <%= simple_form_for [@user_skill, @booking ] do |f| %>
-        <%= f.input :happenned_at, :input_html => { :class => 'thin', :placeholder => 'eg: 20/03/2018' } %>
-        <%= f.input :updated_at %>
-        <%= f.submit "reserver" %>
-      <% end %>
-      <%= @markers %>
-    </div>
-  </div>
 </div>
 
 
