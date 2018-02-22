@@ -8,6 +8,9 @@ class UserSkillsController < ApplicationController
    def show
     @user_skill = UserSkill.find(params[:id])
     @booking = Booking.new
-   end
-
+    @user_latitude = @user_skill.user.latitude
+    @user_longitude = @user_skill.user.longitude
+    @markers = [{lat: @user_skill.user.latitude, lng: @user_skill.user.longitude}]
+    end
 end
+
