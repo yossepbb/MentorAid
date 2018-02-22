@@ -1,46 +1,41 @@
-require 'faker'
-puts 'Cleaning database...'
-User.destroy_all
-Skill.destroy_all
-UserSkill.destroy_all
-puts 'Creating 20 fake users...'
-20.times do
-  User.create!(
-    name:    Faker::Company.name,
-    email:   Faker::Internet.email,
-    password: Faker::Internet.password,
-    pseudo:  Faker::GameOfThrones.character,
-    address: "#{Faker::Address.street_address}, #{Faker::Address.city}"
-  )
-end
+# db/seeds.rb
+puts 'Creating users...'
+tyrion_lannister = User.new(name: "Tyrion Lannister", email: "tyrion@got.com", password: "123456", pseudo: "Tyrion", address:"82 Boulevard de Clichy, 75018 Paris", avatar:"thyrion.jpg")
+tyrion_lannister.save!
 
-puts 'Creating 20 fake skills...'
-20.times do
-    skill = Skill.new(
-    name:    Faker::Beer.name,
-    description: Faker::BackToTheFuture.quote
-  )
-  skill.save!
-end
+joffrey_baratheon = User.new(name: "Joffrey Baratheon", email: "joffrey@got.com", password: "123456", pseudo: "Joffrey", address:"55 Rue du Faubourg Saint-Honoré, 75008 Paris", avatar:"JoffreyBaratheon.jpg")
+joffrey_baratheon.save!
+
+theon_greyjoy = User.new(name: "Theon Greyjoy", email: "theon@got.com", password: "123456", pseudo: "Theon", address:"34 Rue Saint-Louis en l'Île, 75004 Paris", avatar:"Theon_Greyjoy.png")
+theon_greyjoy.save!
 
 
-puts 'Creating 20 fake users skills...'
+puts 'Finished creating users !'
 
-User.all.each do |user|
+puts 'Creating skills...'
+sexe = Skill.new(name: "Education sexuelle", description: "Tout ce que vous avez voulu savoir sur les femmmes et l'art de la séduction", picture: "moulin-rouge.jpg",  icon:"icon-love")
+sexe.save!
 
-  UserSkill.create!(user: user, skill: Skill.all.sample)
+gouverner = Skill.new(name: "L'art de gouverner", description: "Gouverner sans partage, éliminer ses adversaires, comploter... ", picture: "palais-elysee.jpg",  icon:"icon-king")
+gouverner.save!
 
-end
+sm = Skill.new(name: "Thérapie cognitive", description: "Vous avez subi des tortures, vous avez besoin de vous détacher du passé ?", picture: "les-mauvais-garcons.jpg",  icon:"icon-therapy")
+sm.save!
 
 
-puts 'Finished!'
+puts 'Finished creating skills !'
 
-#   names = ["john","nathan", "sylvain", "Benoit", "Damien", "Ercic"]
-#   User.create!(
-#     name:    names.sample,
-#     email:   Faker::Internet.email,
-#     password: Faker::Internet.password,
-#     pseudo:  Faker::GameOfThrones.character,
-#     address: "#{Faker::Address.street_address}, #{Faker::Address.city}"
-#   )
-# end
+
+puts 'Creating user-skills...'
+u_skill1 = UserSkill.new(skill_id: 1, user_id: 1)
+u_skill1.save!
+
+u_skill2 = UserSkill.new(skill_id: 2, user_id: 2)
+u_skill2.save!
+
+u_skill3 = UserSkill.new(skill_id: 3, user_id: 3)
+u_skill3.save
+
+
+puts 'Finished creating user-skills !'
+
