@@ -9,13 +9,14 @@
       <%= link_to user_skill_path(user_skill.id) do %>
         <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://picsum.photos/300/200');">
           <div class="description">
-          <div class="card-category"><%= user_skill.skill.name %></div>
+          <div class="card-category"><%= user_skill.user.name %></div>
 
-
+          <p><%= user_skill.skill.name %></p>
           <img class="card-user avatar border-user" src="https://kitt.lewagon.com/placeholder/users/atmosfeer">
+          <%#= image_tag user_skill.user.avatar ,class:'card-user avatar border-user' %>
           </div>
         </div>
-    <% end %>
+        <% end %>
       </div>
     <%end %>
   </div>
