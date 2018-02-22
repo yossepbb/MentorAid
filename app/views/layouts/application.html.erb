@@ -7,6 +7,7 @@
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
+    <link href="https://file.myfontastic.com/zQGJPpjh9iow3svSZ8ENJL/icons.css" rel="stylesheet">
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
@@ -18,5 +19,7 @@
     <%= yield %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
+    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyBXZ7_e2ppVBqTL2pHxmp9iQFsR2gOa5ow" %>
+    <%= javascript_pack_tag "map" %>
   </body>
 </html>
