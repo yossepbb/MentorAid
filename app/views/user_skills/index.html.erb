@@ -5,16 +5,16 @@
     <% @user_skills.each do |user_skill| %>
 
       <div class="col-xs-12 col-sm-4">
-
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path user_skill.skill.picture, height: 300, width: 400, crop: :fill %>');">
+      <%= link_to user_skill_path(user_skill.id) do %>
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.6)), url('<%= cl_image_path user_skill.skill.picture, height: 300, width: 400, crop: :fill %>');">
           <div class="card-category"><h6><%= user_skill.skill.name %></h6></div>
           <div class="card-description">
-            <%= link_to "#{user_skill.user.name}", user_skill_path(user_skill.id) %>
+            <p><%=user_skill.user.name%></p>
           </div>
           <img class="card-user avatar border-user"
           <%= cl_image_tag(user_skill.user.avatar, :gravity=>"face", :height=>80, :width=>80, :x=>0, :crop=>"fill") %>
-          <a class="card-link" href="#" ></a>
         </div>
+       <% end %>
       </div>
     <% end %>
   </div>
