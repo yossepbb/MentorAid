@@ -1,4 +1,9 @@
 <%= render "layouts/banner"%>
+<%= render "user_skills/filtres" %>
+<div class="container">
+  <h1 style="text-align: center;"> <strong>All Users skills</strong></h1>
+  <div class="row">
+    <% @selected_user_skills.each do |user_skill| %>
 
 <div class="wrapper">
   <div class="container-fluid">

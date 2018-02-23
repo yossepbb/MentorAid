@@ -2,19 +2,13 @@ class UserSkillsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
    def index
+    #if query is not empty
+    @skills = Skill.all
+    @selected_user_skills = UserSkill.all
+    @selected_user_skills = @selected_user_skills.where(user_id: params[:user_id]) if params[:user_id]
     @user_skills = UserSkill.all
-
-    @user = User.all
-    @users = @user.where.not(latitude: nil, longitude: nil)
-    @markers = @users.map do |us|
-      {
-        lat: us.latitude,
-        lng: us.longitude#,
-        # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
-      }
-    end
+    #else
    end
-
 
    def show
     @user_skill = UserSkill.find(params[:id])
@@ -24,5 +18,6 @@ class UserSkillsController < ApplicationController
     @markers = [{lat: @user_skill.user.latitude, lng: @user_skill.user.longitude}]
     end
 end
+
 
 
