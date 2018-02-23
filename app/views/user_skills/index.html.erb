@@ -1,7 +1,7 @@
 <%= render "layouts/banner"%>
-<%= render "user_skills/filtres" %>
 <div class="wrapper">
   <div class="container-fluid">
+    <%= render "user_skills/filtres" %>
     <div class="row">
       <% @selected_user_skills.each do |user_skill| %>
         <div class="col-xs-12 col-sm-4">
