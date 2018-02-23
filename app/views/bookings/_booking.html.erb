@@ -1,0 +1,34 @@
+<div class="col-sm-12 list-card-booking">
+  <div class="col-sm-8">
+    <div class="list-card-top">
+      <%= cl_image_tag booking.user_skill.user.avatar, class: "avatar"%>
+      <h4><%= booking.user_skill.user.name %></h4>
+    </div>
+    <p><%= raw "<i class='fa fa-star'></i>" * booking.rating.to_i %></p>
+    <p class="review"><%= booking.review %></p>
+    <p class="date-review" ><%= booking.happenned_at%></p>
+  </div>
+  <% if booking.review == nil &&  booking.happenned_at < Date.today || booking.errors.any?  %>
+    <div class="col-sm-4 form-list-card-booking">
+      <%= simple_form_for booking, class: 'margin-form', remote: true do |f| %>
+        <%= f.collection_radio_buttons :rating,
+          [[1, '.'],  [2 , "."],[3,"." ],[4,"." ],[5, "."]],
+          :first,
+          :last,
+          item_first_class: "custom",
+          item_wrapper_class: "custom-radio",:input_html =>
+           { :checked => true }
+        %>
+        <% if booking.errors.any? && booking.rating.nil? %>
+          <p class="text-danger">You must set a rating</p>
+        <% end %>
+        <%= f.input :review %>
+        <%= f.submit "Add a Rewiew" %>
+      <% end %>
+    </div>
+  <% elsif  booking.review != nil %>
+    <p class="commented">you have already commented</p>
+  <% else %>
+    <p class="not-yet">You can not comment yet</p>
+  <% end %>
+</div>

@@ -1,0 +1,4 @@
+// on va cahercher le bon id booking
+var booking = document.getElementById('booking-<%= @booking.id %>');
+// on re render l'intérieur de cette carte de booking
+booking.innerHTML = "<%= j render "booking", booking: @booking %>";

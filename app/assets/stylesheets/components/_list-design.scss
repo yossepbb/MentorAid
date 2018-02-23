@@ -52,3 +52,23 @@
 .product-controls a{
   color: #CCC;
 }
+.all-reviews{
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.product2{
+   height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background-color: #f4f1e3;
+
+  border-radius: 3px;
+  box-shadow: 1px 1px 0.5px grey;
+  padding: 10px 60px;
+  margin: 20px;
+
+}
