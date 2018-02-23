@@ -13,13 +13,13 @@ theon_greyjoy.save!
 puts 'Finished creating users !'
 
 puts 'Creating skills...'
-sexe = Skill.new(name: "Education sexuelle", description: "Tout ce que vous avez voulu savoir sur les femmmes et l'art de la séduction", picture: "moulin-rouge.jpg",  icon:"icon-love")
+sexe = Skill.new(name: "Education sexuelle", description: "Tout ce que vous avez voulu savoir sur les femmmes et l'art de la séduction", picture: "moulin-rouge.jpg",  icon:"fas fa-heart")
 sexe.save!
 
-gouverner = Skill.new(name: "L'art de gouverner", description: "Gouverner sans partage, éliminer ses adversaires, comploter... ", picture: "palais-elysee.jpg",  icon:"icon-king")
+gouverner = Skill.new(name: "L'art de gouverner", description: "Gouverner sans partage, éliminer ses adversaires, comploter... ", picture: "palais-elysee.jpg",  icon:"fas fa-chess-king")
 gouverner.save!
 
-sm = Skill.new(name: "Thérapie cognitive", description: "Vous avez subi des tortures, vous avez besoin de vous détacher du passé ?", picture: "les-mauvais-garcons.jpg",  icon:"icon-therapy")
+sm = Skill.new(name: "Thérapie cognitive", description: "Vous avez subi des tortures, vous avez besoin de vous détacher du passé ?", picture: "les-mauvais-garcons.jpg",  icon:"fab fa-hire-a-helper")
 sm.save!
 
 

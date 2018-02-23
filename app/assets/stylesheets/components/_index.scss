@@ -6,10 +6,24 @@
 @import "list-design";
 @import "form";
 @import "banner";
+@import "filtres";
 @import "list-card-booking";
 @import "headers";
 
+.wrapper{
+  display: flex;
+  flex-direction: row;
+}
+.container-fluid{
+    flex: 1;
+   width: 70%;
+  padding: 20px;
+}
 
-
-
+#map {
+  width: 30%;
+  height: 100vh;
+  position: sticky !important;
+  top: 0 !important;
+ }
 

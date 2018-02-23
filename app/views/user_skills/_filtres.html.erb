@@ -1,0 +1,10 @@
+<div class="filtres">
+  <% @user_skills.each do |user_skill| %>
+    <div class="icon">
+      <%= link_to root_path(user_id: user_skill.user_id) do %>
+        <i class="<%= user_skill.skill.icon %>"></i>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
