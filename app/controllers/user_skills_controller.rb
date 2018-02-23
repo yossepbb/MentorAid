@@ -4,7 +4,8 @@ class UserSkillsController < ApplicationController
    def index
     #if query is not empty
     @skills = Skill.all
-    @selected_user_skills = UserSkill.where(user_id: params[:user_id])
+    @selected_user_skills = UserSkill.all
+    @selected_user_skills = @selected_user_skills.where(user_id: params[:user_id]) if params[:user_id]
     @user_skills = UserSkill.all
     #else
    end
