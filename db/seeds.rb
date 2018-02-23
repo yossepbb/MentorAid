@@ -1,61 +1,40 @@
-require 'faker'
-puts 'Cleaning database...'
-User.destroy_all
-Skill.destroy_all
-UserSkill.destroy_all
-puts 'Creating 20 fake users...'
+# db/seeds.rb
+puts 'Creating users...'
+tyrion_lannister = User.new(name: "Tyrion Lannister", email: "tyrion@got.com", password: "123456", pseudo: "Tyrion", address:"82 Boulevard de Clichy, 75018 Paris", avatar:"thyrion.jpg")
+tyrion_lannister.save!
+
+joffrey_baratheon = User.new(name: "Joffrey Baratheon", email: "joffrey@got.com", password: "123456", pseudo: "Joffrey", address:"55 Rue du Faubourg Saint-Honoré, 75008 Paris", avatar:"JoffreyBaratheon.jpg")
+joffrey_baratheon.save!
+
+theon_greyjoy = User.new(name: "Theon Greyjoy", email: "theon@got.com", password: "123456", pseudo: "Theon", address:"34 Rue Saint-Louis en l'Île, 75004 Paris", avatar:"Theon_Greyjoy.png")
+theon_greyjoy.save!
 
 
-20.times do
-  User.create!(
-    name:    Faker::Company.name,
-    email:   Faker::Internet.email,
-    password: Faker::Internet.password,
-    pseudo:  Faker::GameOfThrones.character,
-    address:  address = ["5 Boulevard Diderot 75012 PARIS",
-   "1 place d'ItalieHôtel de Ville 75634 PARIS",
-    "115 bis rue Ordener 75018 PARIS",
-     "16 18 rue des BatignollesHôtel de Ville 75840 PARIS ",
-    "71 avenue Henri MartinHôtel de Ville 75016 PARIS",
-    "31 rue PecletHôtel de Ville 75732 PARIS",
-    " 14 RUE BREVIN 75014 PARIS",
-    " 130 AV D AUMESNILHôtel de ville 75570 PARIS",
-    "23 rue Bichat 75475 PARIS",
-    "21 place du PanthéonMairie de Paris 75231 PARIS ",
-    " 5 Boulevard Diderot 75012",
-    "17 rue Meynadier 75019 PARIS ",
-    "11 rue Dussoubs 75002 ",
-    "6 place Gambetta 75971 PARIS",
-    "29 rue de Bourgogne 75007 PARIS",
-    "Hotel de Ville 75196 PARIS",
-    " 125 bis rue d Avron 75020 PARIS",
-    "75 Rue de Tocqueville 75850 PARIS ",
-    "58 62 Rue de Mouzaia 75935 PARIS ",
-    "68 rue des plantes 75014 PARIS",
-    "130 avenue Ledru Rollin 75011 PARIS",
-    "23 bis rue Bichat 75010 PARIS",
-    "3 place Jacques Froment 75018 PARIS",
-    "7 rue Jean Nicot 75007 PARIS"].sample
-  )
-end
+puts 'Finished creating users !'
 
-puts 'Creating 20 fake skills...'
-20.times do
-    skill = Skill.new(
-    name:    Faker::Beer.name,
-    description: Faker::BackToTheFuture.quote
-  )
-  skill.save!
-end
+puts 'Creating skills...'
+sexe = Skill.new(name: "Education sexuelle", description: "Tout ce que vous avez voulu savoir sur les femmmes et l'art de la séduction", picture: "moulin-rouge.jpg",  icon:"icon-love")
+sexe.save!
+
+gouverner = Skill.new(name: "L'art de gouverner", description: "Gouverner sans partage, éliminer ses adversaires, comploter... ", picture: "palais-elysee.jpg",  icon:"icon-king")
+gouverner.save!
+
+sm = Skill.new(name: "Thérapie cognitive", description: "Vous avez subi des tortures, vous avez besoin de vous détacher du passé ?", picture: "les-mauvais-garcons.jpg",  icon:"icon-therapy")
+sm.save!
 
 
-puts 'Creating 20 fake users skills...'
-
-User.all.each do |user|
-
-  UserSkill.create!(user: user, skill: Skill.all.sample)
-
-end
+puts 'Finished creating skills !'
 
 
-puts 'Finished!'
+puts 'Creating user-skills...'
+u_skill1 = UserSkill.new(skill_id: 1, user_id: 1)
+u_skill1.save!
+
+u_skill2 = UserSkill.new(skill_id: 2, user_id: 2)
+u_skill2.save!
+
+u_skill3 = UserSkill.new(skill_id: 3, user_id: 3)
+u_skill3.save
+
+
+puts 'Finished creating user-skills !'
