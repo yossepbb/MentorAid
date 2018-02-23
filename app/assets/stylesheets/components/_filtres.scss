@@ -1,17 +1,22 @@
 .filtres {
-  background-color: white;
   color: black;
   display: flex;
   justify-content: space-around;
-  margin-top: 300px;
+  // margin-top: 400px;
+  height: 50px;
+  width: 100%;
 }
 
 .icon {
-  font-size: 20px;
-  border: 2px solid white;
+  padding: 10px;
+  font-size: 30px;
+  color: white;
 }
 
 .icon a {
-  color: white; important!
-  s
+  color: white;
+}
+
+.icon a:hover {
+  color : red;
 }
