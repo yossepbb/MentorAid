@@ -1,6 +1,6 @@
 
 .list-card-booking{
-  background-color: white;
+  background-color: #f4f1e3;
 height:300px;
 margin-bottom: 30px;
 border-radius: 4px;
@@ -16,7 +16,7 @@ border-radius: 4px;
 }
 .list-card-top{
   display: inline-block;
-  padding-top: 10px;
+  padding-top: 30px;
 }
 .not-yet{
   font-family: "Cinzel Decorative", "cursive";
@@ -25,4 +25,49 @@ border-radius: 4px;
 }
 .edit_booking{
   margin-top: 80px;
+}
+
+.custom-radio {
+  input[type=radio] {
+      unicode-bidi: bidi-override;
+  direction: rtl;
+      border: 0;
+      clip: rect(0 0 0 0);
+      height: 7px;
+      margin: -1px;
+      padding: 0;
+      position: absolute;
+      width: 7px;
+  }
+  label {
+    margin-bottom: 0px;
+    font-weight: normal;
+    color:white;
+    cursor: pointer;
+  }
+
+  input[type=radio] ~ label:before {
+      font-family: FontAwesome;
+      display: inline-block;
+      content: '\2605';
+      letter-spacing: 5px;
+      font-size: 14px;
+      color:black;
+      margin-left: 15px;
+  }
+
+  input[type=radio]:checked ~ label:before, input[type=radio] + label:hover ~ label:before,
+    input[type=radio] + label:hover:before {
+      content: "\2605";
+      font-size: 18px;
+      content: '\2605';
+      color: #cc1616;
+  }
+  input[type=radio]:hover > input + label:before {
+    text-shadow: none;
+  }
+  input[type=radio]:hover > input + label:hover ~ label:before,
+  input[type=radio]:hover > input + label:hover:before {
+    text-shadow: 0 0 1px #333;
+  }
 }

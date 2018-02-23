@@ -1,30 +1,26 @@
 <div id="map" style="width: 100%; height: 450px;" data-markers="<%= @markers.to_json %>"></div>
 <h2 style="text-align: center;" class="chg-color"> <strong>User Skill Details</strong> </h2>
 <div class="container-fluid">
-      <div class="row">
-          <div class="col-xs-12 offset-col-xs-6">
-            <ul class="list-unstyled ">
-
-              <li class="product">
-                  <div class="product-upvote">
-                  <i class="fa fa-caret-up" aria-hidden="true"></i>
-                  <p>3000</p>
-                  </div>
-
-                  <img src="https://picsum.photos/150/150/?random" alt="" class="img-rounded border-user">
-
-                  <div class="product-description">
-                      <h3><strong><%= @user_skill.skill.name%></strong></h3>
-                      <p><%= @user_skill.skill.description%></p>
-                  </div>
-
-                <%= simple_form_for [@user_skill, @booking ] do |f| %>
-                  <%= f.input :happenned_at, as: :date, order: [:day, :month, :year] %>
-                  <%= f.submit "reserver" %>
-                <% end %>
-              </li>
-            </ul>
+  <div class="row">
+    <div class="col-xs-12 offset-col-xs-6">
+      <ul class="list-unstyled ">
+        <li class="product">
+          <div class="product-upvote">
+            <i class="fa fa-caret-up" aria-hidden="true"></i>
+            <p>3000</p>
           </div>
-      </div>
+          <img src="https://picsum.photos/150/150/?random" alt="" class="img-rounded border-user">
+          <div class="product-description">
+            <h3><strong><%= @user_skill.skill.name%></strong></h3>
+            <p><%= @user_skill.skill.description%></p>
+          </div>
+          <%= simple_form_for [@user_skill, @booking ] do |f| %>
+            <%= f.input :happenned_at, as: :date, order: [:day, :month, :year] %>
+            <%= f.submit "reserver" %>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>
 
