@@ -2,7 +2,11 @@ class UserSkillsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
    def index
+    #if query is not empty
+    @skills = Skill.all
+    @selected_user_skills = UserSkill.where(user_id: params[:user_id])
     @user_skills = UserSkill.all
+    #else
    end
 
    def show
