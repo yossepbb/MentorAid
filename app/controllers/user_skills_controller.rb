@@ -3,7 +3,18 @@ class UserSkillsController < ApplicationController
 
    def index
     @user_skills = UserSkill.all
+
+    @user = User.all
+    @users = @user.where.not(latitude: nil, longitude: nil)
+    @markers = @users.map do |us|
+      {
+        lat: us.latitude,
+        lng: us.longitude#,
+        # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+      }
+    end
    end
+
 
    def show
     @user_skill = UserSkill.find(params[:id])
