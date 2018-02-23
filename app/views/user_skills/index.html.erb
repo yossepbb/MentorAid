@@ -9,6 +9,7 @@
           <div class="card-category"><h6><%= user_skill.skill.name %></h6></div>
           <div class="card-description">
             <p><%=user_skill.user.name%></p>
+            <p><%= user_skill.average_rating%></p>
           </div>
           <img class="card-user avatar border-user"
           <%= cl_image_tag(user_skill.user.avatar, :gravity=>"face", :height=>80, :width=>80, :x=>0, :crop=>"fill") %>

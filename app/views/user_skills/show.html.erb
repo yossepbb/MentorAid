@@ -1,15 +1,14 @@
 <div id="map" style="width: 100%; height: 450px;" data-markers="<%= @markers.to_json %>"></div>
 <h2 style="text-align: center;" class="chg-color"> <strong>User Skill Details</strong> </h2>
-<div class="container-fluid">
+<div class="container-fluid ">
   <div class="row">
-    <div class="col-xs-12 offset-col-xs-6">
-      <ul class="list-unstyled ">
-        <li class="product">
+    <div class="col-xs-12 >
+      <div class="list-unstyled ">
+        <div class="product">
           <div class="product-upvote">
-            <i class="fa fa-caret-up" aria-hidden="true"></i>
-            <p>3000</p>
+            <p><%= raw "<i class='fa fa-star'></i>" * @user_skill.average_rating.to_i %></p>
           </div>
-          <img src="https://picsum.photos/150/150/?random" alt="" class="img-rounded border-user">
+          <%= cl_image_tag( @user_skill.user.avatar, :gravity=>"face", class: "img-rounded border-user", :height=>80, :width=>80, :x=>0, :crop=>"fill") %>
           <div class="product-description">
             <h3><strong><%= @user_skill.skill.name%></strong></h3>
             <p><%= @user_skill.skill.description%></p>
@@ -18,8 +17,17 @@
             <%= f.input :happenned_at, as: :date, order: [:day, :month, :year] %>
             <%= f.submit "reserver" %>
           <% end %>
-        </li>
-      </ul>
+
+        </div>
+    </div>
+    <div class= "all-reviews col-xs-12">
+    <% @user_skill.bookings.each do |booking|%>
+    <div class="product2">
+      <h4><%= booking.user.name %></h4>
+      <p><%= booking.review %></p>
+    </div>
+    <%end%>
+    </div>
     </div>
   </div>
 </div>

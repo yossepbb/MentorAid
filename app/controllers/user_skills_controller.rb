@@ -6,6 +6,7 @@ class UserSkillsController < ApplicationController
    end
 
    def show
+
     @user_skill = UserSkill.find(params[:id])
     @booking = Booking.new
     @user_latitude = @user_skill.user.latitude

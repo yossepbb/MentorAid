@@ -1,36 +1,10 @@
 <h1 class="chg-color marge-left-title">Your bookings</h1>
 <div class="container">
   <% @bookings.each do |booking| %>
-  <div class="col-sm-12 list-card-booking">
-    <div class="col-sm-8">
-      <div class="list-card-top">
-        <%= cl_image_tag booking.user_skill.user.avatar, class: "avatar"%>
-        <h4><%= booking.user_skill.user.name %></h4>
-      </div>
-      <p><%= booking.rating %></p>
-      <p><%= booking.review %></p>
-      <p><%= booking.happenned_at%></p>
+    <div id="booking-<%= booking.id %>">
+      <%= render "booking", booking: booking %>
     </div>
-    <% if booking.review == nil &&  booking.happenned_at < Date.today  %>
-    <div class="col-sm-4 form-list-card-booking">
-      <%= simple_form_for booking, :class => 'margin-form' do |f| %>
-        <%=f.collection_radio_buttons( :rating,
-                                  [[1, '.'],  [2 , "."],[3,"." ],[4,"." ],[5, "."]],
-                                  :first,
-                                  :last,
-                                  item_first_class: "custom",
-                                  item_wrapper_class: "custom-radio",:input_html =>
-                                   { :checked => true }
-                                )%>
-        <%= f.input :review %>
-        <%= f.submit "Add a Rewiew" %>
-      <% end %>
-    <% else %>
-      <p class="not-yet">You can not comment yet</p>
-      </div>
-    <% end %>
   <% end %>
-  </div>
 </div>
 
 

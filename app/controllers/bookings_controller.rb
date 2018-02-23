@@ -5,23 +5,26 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @user_skill_id = UserSkill.find(params[:user_skill_id])
-    @booking = @user_skill_id.bookings.new(booking_params)
-    @booking.user_id = current_user.id
-    if @booking.save
-      redirect_to bookings_path
-    else
-      redirect_to bookings_path
-
-    end
+    @user_skill = UserSkill.find(params[:user_skill_id])
+    @booking = @user_skill.bookings.new(booking_params)
+    @booking.user = current_user
+    @booking.save
+    redirect_to bookings_path
   end
 
   def update
     @booking = Booking.find(params[:id])
     if @booking.update(booking_params)
-      redirect_to bookings_path
+      respond_to do |format|
+        format.html { redirect_to bookings_path }
+        format.js # render update.js.erb
+      end
     else
-      render 'index'
+      @bookings = current_user.bookings
+      respond_to do |format|
+        format.html { render :index }
+        format.js # render update.js.erb
+      end
     end
   end
 

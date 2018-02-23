@@ -1,7 +1,8 @@
 
 .list-card-booking{
-  background-color: #f4f1e3;
-height:300px;
+background-color: #f4f1e3;
+min-height:300px;
+max-height:auto;
 margin-bottom: 30px;
 border-radius: 4px;
 }
@@ -23,13 +24,25 @@ border-radius: 4px;
   color: #cc1616;
   margin-top: 140px;
 }
+.commented{
+  font-family: "Cinzel Decorative", "cursive";
+  color: #4ab257;
+  margin-top: 140px;
+}
+
 .edit_booking{
   margin-top: 80px;
 }
-
+.review{
+  margin-left: 20px;
+  text-align: justify;
+}
+.date-review{
+  font-size: 0.7em;
+}
 .custom-radio {
   input[type=radio] {
-      unicode-bidi: bidi-override;
+  unicode-bidi: bidi-override;
   direction: rtl;
       border: 0;
       clip: rect(0 0 0 0);
