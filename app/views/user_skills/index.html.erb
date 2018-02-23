@@ -1,29 +1,28 @@
 <%= render "layouts/banner"%>
 
 <div class="wrapper">
-  <div class="container" style="width: 70%;">
-      <h1 style="text-align: center;"> <strong>All Users skills</strong></h1>
-      <div class="row">
-        <% @user_skills.each do |user_skill| %>
+  <div class="container-fluid">
+    <!-- <h1 style="text-align: center;"> <strong>All Users skills</strong></h1> -->
+    <div class="row">
+      <% @user_skills.each do |user_skill| %>
 
-          <div class="col-xs-12 col-sm-4">
-            <%= link_to user_skill_path(user_skill.id) do %>
-              <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.6)), url('<%= cl_image_path user_skill.skill.picture, height: 300, width: 400, crop: :fill %>');">
-                <div class="card-category"><h6><%= user_skill.skill.name %></h6></div>
-                <div class="card-description">
-                  <p><%=user_skill.user.name%></p>
-                </div>
-                <img class="card-user avatar border-user"
-                <%= cl_image_tag(user_skill.user.avatar, :gravity=>"face", :height=>80, :width=>80, :x=>0, :crop=>"fill") %>
+        <div class="col-xs-12 col-sm-4">
+          <%= link_to user_skill_path(user_skill.id) do %>
+            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.6)), url('<%= cl_image_path user_skill.skill.picture, height: 300, width: 400, crop: :fill %>');">
+              <div class="card-category"><p><%=user_skill.user.name%></p></div>
+              <div class="card-description">
+                <h6><%= user_skill.skill.name %></h6>
               </div>
-             <% end %>
+              <%= cl_image_tag(user_skill.user.avatar, :gravity=>"face", :height=>80, :width=>80, :x=>0, :crop=>"fill", class: "card-user avatar border-user") %>
             </div>
           <% end %>
         </div>
+
+      <% end %>
     </div>
   </div>
 
-    <div id="map" data-markers="<%= @markers.to_json %>"></div>
+  <div id="map" data-markers="<%= @markers.to_json %>"></div>
 
 </div>
 
