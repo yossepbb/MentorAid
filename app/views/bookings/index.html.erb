@@ -4,7 +4,7 @@
   <div class="col-sm-12">
     <div class="col-sm-8">
     <p><%= booking.user_skill.user.name %></p>
-    <%= image_tag booking.user_skill.user.avatar%>
+    <%= cl_image_tag booking.user_skill.user.avatar, class: "card-user "%>
     <p><%= booking.review %></p>
 
     <p><%=  booking.rating%></p>
